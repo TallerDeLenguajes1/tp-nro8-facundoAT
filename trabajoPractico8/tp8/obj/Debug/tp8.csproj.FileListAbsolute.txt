@@ -1,0 +1,7 @@
+C:\Users\fvg\source\repos\trabajoPractico8\tp8\bin\Debug\tp8.exe.config
+C:\Users\fvg\source\repos\trabajoPractico8\tp8\bin\Debug\tp8.exe
+C:\Users\fvg\source\repos\trabajoPractico8\tp8\bin\Debug\tp8.pdb
+C:\Users\fvg\source\repos\trabajoPractico8\tp8\obj\Debug\tp8.csprojAssemblyReference.cache
+C:\Users\fvg\source\repos\trabajoPractico8\tp8\obj\Debug\tp8.csproj.CoreCompileInputs.cache
+C:\Users\fvg\source\repos\trabajoPractico8\tp8\obj\Debug\tp8.exe
+C:\Users\fvg\source\repos\trabajoPractico8\tp8\obj\Debug\tp8.pdb
