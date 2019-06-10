@@ -21,11 +21,8 @@ namespace tp8
 
             string[] infJunta;
             string[] infSeparada;
-
-            //aux = File.ReadAllText (@"C:\Users\fvg\source\repos\trabajoPractico8\tp8\empleados.txt")  Hacer de otra forma
-            //Console.WriteLine(aux);
-            //informacion = aux.Split(',');
-            infJunta = File.ReadAllLines(@"C:\Users\fvg\source\repos\trabajoPractico8\tp8\empleados2.csv");
+            string rutaDelDocumento = @"C:\repositorios\repositorio8\tp-nro8-facundoAT\trabajoPractico8\tp8\empleados2.csv";
+            infJunta = File.ReadAllLines(rutaDelDocumento);
             //Console.WriteLine("Arreglo sin separar caracteristicas de empleados");
             //foreach (var inf in infJunta)
             //{
@@ -37,6 +34,9 @@ namespace tp8
             //{
             //    Console.WriteLine(item);
             //}
+            Console.WriteLine("--------------------Empleados en mi archivo------------------------");
+
+            //CARGO MI LISTA CON LOS EMPLEADOS DEL ARCHIVO
             for (int i = 0; i < infJunta.Count(); i++)
             {
                 infSeparada = infJunta[i].Split(';');
@@ -44,12 +44,17 @@ namespace tp8
                 listaEmpl.Add(empl);
             }
             mostrar(listaEmpl);
-            //escribirArchivo(@"C:\Users\fvg\source\repos\trabajoPractico8\tp8\empleados2.csv",empl);
-            //empl.mostrar();
+            Console.WriteLine("-------------------------------------------------------------------");
+            //AGREGO LOS EMPLEDOS DE MI LISTA AL ARCHIVO
+            for (int i = 0; i < listaEmpl.Count(); i++)
+            {
+                escribirArchivo(rutaDelDocumento, listaEmpl[i]);
+            }
+            BackUpEmpleados();
             Console.ReadKey();
 
         } 
-        //             FUNCIONES FUERA DE LA ESTRUCTURA
+        //             FUNCIONES FUERA DEL MAIN
         public static int cantidadEmpleados(List<empleado> empresa) => empresa.Count();
         public static double montoTotal(List<empleado> empresa)
         {
@@ -206,26 +211,66 @@ namespace tp8
             //empl.mostrar();
             return (empl);
         }
-
-
-        public static void escribirArchivo (string ruta, empleado empl)
+        public static void escribirArchivo(string ruta, empleado empl)
         {
             string fecha;
             using (StreamWriter file = new StreamWriter(ruta, true))
             {
                 file.Write(empl.nombre + ";");
                 file.Write(empl.apellido + ";");
-                fecha = Convert.ToDateTime(empl.fechaNacimiento).ToString("dd/MM/yy");
+                fecha = Convert.ToDateTime(empl.fechaNacimiento).ToString("dd/MM/yyyy");
                 file.Write(fecha + ";");
-                file.Write(empl.genero + ";");
                 file.Write(empl.estadoCivil + ";");
-                file.Write(empl.fechaDeIngreso + ";");
-                fecha = Convert.ToDateTime(empl.fechaDeIngreso).ToString("dd/MM/yy");
+                file.Write(empl.genero + ";");
+                fecha = Convert.ToDateTime(empl.fechaDeIngreso).ToString("dd/MM/yyyy");
                 file.Write(fecha + ";");
+                file.Write(empl.sueldoBasico + ";");
                 file.Write(empl.cargo + ";");
-                file.Write(empl.hijos + ";");
+                file.Write(empl.hijos);
+                file.Write("\n");
                 file.Close();
             }
+        }
+        public static void BackUpEmpleados()
+        {
+            string[] discos;
+            discos = Directory.GetLogicalDrives();
+            int x = 1;
+
+            Console.WriteLine("Seleccione la unidad donde quiere hacer el BackUp y crear la carpeta BackUpAgenda, si no existe.(1 o 2 )");
+            int opc = int.Parse(Console.ReadLine());
+            foreach (var item in discos)
+            {
+                Console.WriteLine("{0}: {1}", x++, item);
+            }
+            //Directory.CreateDirectory(@"C:\trabajos2\trabajos3\trabajos4\trabajos5\");
+            if (!Directory.Exists(@"C:\BackUpAgenda"))
+            {
+                Directory.CreateDirectory(@"C:\BackUpAgenda");
+                Console.WriteLine("Carpeta BackUpAgenda creada.");
+            }
+            else
+            {
+                Console.WriteLine("La carpeta BackUpAgenda ya existe");
+            }
+            string extension = ".bk";
+            string rutaArchivo = @"C:\repositorios\repositorio8\tp-nro8-facundoAT\trabajoPractico8\tp8\empleados2.csv";
+            string rutaDeCopia = Path.Combine(@"C:\BackUpAgenda", Path.ChangeExtension("empleados2.csv", extension));//(carpeta nueva)+(archivoCopia)
+
+            //string cambio=Path.ChangeExtension("empleados2.csv", extension);
+            //Console.WriteLine(cambio);
+            if (!File.Exists(rutaDeCopia))
+            {
+                //Console.WriteLine(rutaDeCopia);
+                File.Copy(rutaArchivo, rutaDeCopia, false); //false no permite sobreescribir el archivo
+                Console.WriteLine("Copia realizada");
+            }
+            else
+            {
+                Console.WriteLine("Ya existe una copia del archivo en esa Carpeta");
+            }
+            //Directory.Delete(@"C:\trabajos");
+            Console.ReadKey();
         }
     }
 

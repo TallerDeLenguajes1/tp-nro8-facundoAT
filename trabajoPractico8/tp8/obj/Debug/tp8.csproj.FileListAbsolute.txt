@@ -5,3 +5,10 @@ C:\Users\fvg\source\repos\trabajoPractico8\tp8\obj\Debug\tp8.csprojAssemblyRefer
 C:\Users\fvg\source\repos\trabajoPractico8\tp8\obj\Debug\tp8.csproj.CoreCompileInputs.cache
 C:\Users\fvg\source\repos\trabajoPractico8\tp8\obj\Debug\tp8.exe
 C:\Users\fvg\source\repos\trabajoPractico8\tp8\obj\Debug\tp8.pdb
+C:\repositorios\repositorio8\tp-nro8-facundoAT\trabajoPractico8\tp8\bin\Debug\tp8.exe.config
+C:\repositorios\repositorio8\tp-nro8-facundoAT\trabajoPractico8\tp8\bin\Debug\tp8.exe
+C:\repositorios\repositorio8\tp-nro8-facundoAT\trabajoPractico8\tp8\bin\Debug\tp8.pdb
+C:\repositorios\repositorio8\tp-nro8-facundoAT\trabajoPractico8\tp8\obj\Debug\tp8.csprojAssemblyReference.cache
+C:\repositorios\repositorio8\tp-nro8-facundoAT\trabajoPractico8\tp8\obj\Debug\tp8.csproj.CoreCompileInputs.cache
+C:\repositorios\repositorio8\tp-nro8-facundoAT\trabajoPractico8\tp8\obj\Debug\tp8.exe
+C:\repositorios\repositorio8\tp-nro8-facundoAT\trabajoPractico8\tp8\obj\Debug\tp8.pdb
